@@ -1,0 +1,79 @@
+
+
+<ItemLabel@MDLabel>:
+    font_size: '25sp'
+    halign: 'left'
+    valign: 'middle'
+    text_size: self.size
+
+<Container>:
+    rows: 3
+
+    text_input: text_input
+    salt: salt
+    nitro: nitro
+    sugars: sugars
+    starts: starts
+    time: time
+
+    AnchorLayout:
+        anchor_y: 'top'
+        size_hint: 1, 0.2
+        padding: 30 
+        MDTextField:
+            id: text_input
+            font_size: '45sp'
+            multiline: False
+            input_type: 'number'
+            input_filter: 'int'
+            hint_text: 'Massa to gr'
+
+    GridLayout:
+        cols: 2
+
+        BoxLayout:
+            padding: [30, 0, 0, 0]
+            orientation: 'vertical'
+            Label:
+                text: 'Соль'
+            Label:
+                text: 'Нитритная Соль'
+            Label:
+                text: 'Моносахара'
+            Label:
+                text: 'Старты'
+            Label:
+                text: 'Время засолки'
+
+        BoxLayout:
+            size_hint: 0.5, 1 
+            orientation: 'vertical'
+
+            ItemLabel:
+                id: salt
+                text: '0'
+            ItemLabel:
+                id: nitro
+                text: '0'
+            ItemLabel:
+                id: sugars
+                text: '0'
+            ItemLabel:
+                id: starts
+                text: '0'
+            ItemLabel:
+                id: time
+                text: '0'                
+
+    
+    BoxLayout: 
+        size_hint: 0.9, 0.15
+        padding:[30, 0, 30, 20]       
+        MDRaisedButton:
+            size_hint: 1, 0.9
+            text: 'Go!'
+            font_size: 40
+
+            on_release: 
+                root.calculate()
+            
